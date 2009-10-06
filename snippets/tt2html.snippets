@@ -1,0 +1,10 @@
+snippet exp
+	[% ${1} %]
+
+snippet foreach
+	[% FOREACH ${1} in ${2} -%]
+	${3}
+	[% END -%] ${4}
+
+snippet xforeach
+	${1} FOREACH ${2}
