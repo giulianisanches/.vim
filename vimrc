@@ -24,7 +24,7 @@ set encoding=utf-8
 set autowrite
 set wildmode=list:longest,full
 set wildmenu
-set shortmess=aTI
+set shortmess=atTI
 set number
 set laststatus=2
 set statusline=%<%F\ %=%-5.(%L\ %v\ %m\ %r%)
@@ -35,9 +35,18 @@ set guitablabel=%t%m
 set guitabtooltip=%F
 set guioptions-=T
 set guioptions-=m
-set guifont=DejaVu\ Sans\ Mono\ 11
+if has('win32')
+    set guifont=Consolas:h11:cANSI
+else
+    set guifont=DejaVu\ Sans\ Mono\ 11
+endif
 
 set completeopt=longest,menuone,preview
+
+let g:netrw_cygwin = 0
+let g:netrw_scp_cmd = '"C:\Tools\PuTTY\pscp.exe" -q'
+let g:netrw_sftp_cmd = '"C:\Tools\PuTTY\psftp.exe"'
+let g:netrw_ssh_cmd = '"C:\Tools\PuTTY\plink.exe"'
 
 let moria_style = 'black'
 
@@ -67,7 +76,11 @@ filetype indent on
 
 colorscheme moria
 
-helptags ~/.vim/doc
+if has('win32')
+    helptags $HOME/vimfiles/doc
+else
+    helptags $HOME/.vim/doc
+endif
 
 " busca similar a do textmate
 function! OpenIt(name)
@@ -158,6 +171,7 @@ au BufRead,BufNewFile *.wsgi set filetype=python
 au BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
 au BufNewFile,BufRead *.tt,*.tt2  set ft=html.tt2html
 au BufNewFile,BufRead *.rhtml setlocal ft=eruby
+au BufNewFile,BufRead *.wsdl,*.bpel setlocal ft=xml
  
 au FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako,tt2html,html.tt2html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 

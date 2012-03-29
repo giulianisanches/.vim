@@ -6,3 +6,4 @@ snippy_bundles.vba: call delete('/home/giuliani/.vim/after/ftplugin/actionscript
 snippy_plugin.vba: call delete('/home/giuliani/.vim/plugin/snippetsEmu.vim')|call delete('/home/giuliani/.vim/doc/snippets_emu.txt')
 snippy_plugin.vba: call delete('/home/khaoz/.vim/plugin/snippetsEmu.vim')|call delete('/home/khaoz/.vim/doc/snippets_emu.txt')
 snippy_plugin.vba: call delete('/home/khaoz/.vim/plugin/snippetsEmu.vim')|call delete('/home/khaoz/.vim/doc/snippets_emu.txt')
+mark.vba: call delete('C:\Users\Giuliani\vimfiles/autoload/mark.vim')|call delete('C:\Users\Giuliani\vimfiles/plugin/mark.vim')|call delete('C:\Users\Giuliani\vimfiles/doc/mark.txt')
