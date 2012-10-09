@@ -48,8 +48,6 @@ let g:netrw_scp_cmd = '"C:\Tools\PuTTY\pscp.exe" -q'
 let g:netrw_sftp_cmd = '"C:\Tools\PuTTY\psftp.exe"'
 let g:netrw_ssh_cmd = '"C:\Tools\PuTTY\plink.exe"'
 
-let moria_style = 'black'
-
 let NERDSpaceDelims = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore = ['\.pyc$', '\~$']
@@ -74,7 +72,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
-colorscheme moria
+colorscheme zenburn
 
 if has('win32')
     helptags $HOME/vimfiles/doc
