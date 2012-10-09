@@ -38,7 +38,7 @@ set guioptions-=m
 if has('win32')
     set guifont=Consolas:h11:cANSI
 else
-    set guifont=DejaVu\ Sans\ Mono\ 11
+    set guifont=Monaco:h12
 endif
 
 set completeopt=longest,menuone,preview
