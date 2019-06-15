@@ -1,3 +1,4 @@
+" teste 
 set nocompatible
 set notimeout
 set nowrap
