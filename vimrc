@@ -68,51 +68,6 @@ syntax on
 filetype plugin on
 filetype indent on
 
-" busca similar a do textmate
-function! OpenIt(name)
-    let l:_name = substitute(a:name, "\\s", "*", "g")
-    let l:list=system("find . -iname '*".l:_name."*' -not -name \"*.class\" -and -not -name \"*.swp\" | perl -ne 'print \"$.\\t$_\"'")
-    let l:num=strlen(substitute(l:list, "[^\n]", "", "g"))
-    if l:num < 1
-        echo "'".a:name."' not found"
-        return
-    endif
-
-    if l:num != 1
-        echo l:list
-        let l:input=input("Which ? (<enter>=nothing)\n")
-
-        if strlen(l:input)==0
-            return
-        endif
-
-        if strlen(substitute(l:input, "[0-9]", "", "g"))>0
-            echo "Not a number"
-            return
-        endif
-
-        if l:input<1 || l:input>l:num
-            echo "Out of range"
-            return
-        endif
-
-        let l:line=matchstr("\n".l:list, "\n".l:input."\t[^\n]*")
-    else
-        let l:line=l:list
-    endif
-
-    let l:line=substitute(l:line, "^[^\t]*\t./", "", "")
-    execute ":e ".l:line
-endfunction
-
-command! -nargs=1 OpenIt :call OpenIt("<args>")
-
-" salva a posição do cursor
-au BufReadPost * if line("'\"")|execute("normal `\"")|endif
-
-noremap ,b :BufExplorer<CR>
-noremap ,g :TlistToggle<CR>
-noremap ,o :OpenIt 
 noremap <Space> <PageDown>
 noremap <S-Space> <PageUp>
 
