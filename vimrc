@@ -1,4 +1,3 @@
-" teste 
 set nocompatible
 set notimeout
 set nowrap
@@ -38,21 +37,17 @@ set guioptions-=T
 set guioptions-=m
 if has('win32')
     set guifont=Consolas:h11:cANSI
+    let g:netrw_cygwin = 0
+    let g:netrw_scp_cmd = '"C:\Tools\PuTTY\pscp.exe" -q'
+    let g:netrw_sftp_cmd = '"C:\Tools\PuTTY\psftp.exe"'
+    let g:netrw_ssh_cmd = '"C:\Tools\PuTTY\plink.exe"'
+    helptags $HOME/vimfiles/doc
 else
     set guifont=Monaco:h12
+    helptags $HOME/.vim/doc
 endif
 
 set completeopt=longest,menuone,preview
-
-let g:netrw_cygwin = 0
-let g:netrw_scp_cmd = '"C:\Tools\PuTTY\pscp.exe" -q'
-let g:netrw_sftp_cmd = '"C:\Tools\PuTTY\psftp.exe"'
-let g:netrw_ssh_cmd = '"C:\Tools\PuTTY\plink.exe"'
-
-let NERDSpaceDelims = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore = ['\.pyc$', '\~$']
-let NERDTreeChDirMode = 1
 
 let Tlist_Close_On_Select = 1
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
@@ -72,14 +67,6 @@ syntax on
 
 filetype plugin on
 filetype indent on
-
-colorscheme zenburn
-
-if has('win32')
-    helptags $HOME/vimfiles/doc
-else
-    helptags $HOME/.vim/doc
-endif
 
 " busca similar a do textmate
 function! OpenIt(name)
@@ -118,63 +105,11 @@ function! OpenIt(name)
     execute ":e ".l:line
 endfunction
 
-fun! s:SelectHTML()
-    let n = 1
-    while n < 50 && n < line("$")
-        " check for jinja
-        if getline(n) =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\s*%}'
-            set ft=htmljinja
-            return
-        endif
-        " check for django
-        if getline(n) =~ '{%\s*\(extends\|block\|comment\|ssi\|if\|for\|blocktrans\)\>'
-            set ft=htmldjango
-            return
-        endif
-        " check for mako
-        if getline(n) =~ '<%\(def\|inherit\)'
-            set ft=mako
-            return
-        endif
-        " check for genshi
-        if getline(n) =~ 'xmlns:py\|py:\(match\|for\|if\|def\|strip\|xmlns\)'
-            set ft=genshi
-            return
-        endif
-
-        " check for php
-        if getline(n) =~ '<?php'
-            set ft=phtml
-            return
-        endif
-        
-        " check for template toolkit
-        if getline(n) =~ '[%\s?(*)\s%]'
-            set ft=tt2html
-            return
-        endif
-
-        let n = n + 1
-    endwhile
-    " go with html
-    set ft=html
-endfun
-
 command! -nargs=1 OpenIt :call OpenIt("<args>")
 
 " salva a posição do cursor
 au BufReadPost * if line("'\"")|execute("normal `\"")|endif
 
-" define o tipo phtml para alguns arquivos dentro de determinados diretorios
-au BufRead,BufNewFile *.wsgi set filetype=python
-au BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
-au BufNewFile,BufRead *.tt,*.tt2  set ft=html.tt2html
-au BufNewFile,BufRead *.rhtml setlocal ft=eruby
-au BufNewFile,BufRead *.wsdl,*.bpel setlocal ft=xml
- 
-au FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako,tt2html,html.tt2html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-
-noremap ,t :NERDTreeToggle<CR>
 noremap ,b :BufExplorer<CR>
 noremap ,g :TlistToggle<CR>
 noremap ,o :OpenIt 
