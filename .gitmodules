@@ -4,3 +4,6 @@
 [submodule "pack/git-plugins/start/nerdcommenter"]
 	path = pack/git-plugins/start/nerdcommenter
 	url = https://github.com/preservim/nerdcommenter.git
+[submodule "pack/git-plugins/start/autopairs"]
+	path = pack/git-plugins/start/autopairs
+	url = https://github.com/LunarWatcher/auto-pairs.git
