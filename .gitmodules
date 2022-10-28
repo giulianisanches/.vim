@@ -7,3 +7,6 @@
 [submodule "pack/git-plugins/start/autopairs"]
 	path = pack/git-plugins/start/autopairs
 	url = https://github.com/LunarWatcher/auto-pairs.git
+[submodule "pack/git-plugins/start/surround"]
+	path = pack/git-plugins/start/surround
+	url = https://github.com/tpope/vim-surround.git
