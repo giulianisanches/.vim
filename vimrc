@@ -35,6 +35,8 @@ set guitablabel=%t%m
 set guitabtooltip=%F
 set guioptions-=T
 set guioptions-=m
+set completeopt=longest,menuone,preview
+
 if has('win32')
     set guifont=Consolas:h11:cANSI
     let g:netrw_cygwin = 0
@@ -43,19 +45,14 @@ if has('win32')
     let g:netrw_ssh_cmd = '"C:\Tools\PuTTY\plink.exe"'
     helptags $HOME/vimfiles/doc
 else
-    set guifont=Monaco:h12
+    if has('macunix')
+        set guifont=Monaco:h12
+    else
+        set guifont=DejaVu\ Sans\ Mono:h12
+    endif
+
     helptags $HOME/.vim/doc
 endif
-
-set completeopt=longest,menuone,preview
-
-let Tlist_Close_On_Select = 1
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Display_Tag = 0
-let Tlist_Display_Prototype = 1
-
-let g:bufExplorerSplitBelow = 1
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
 
 cab W w
 cab Wq wq
