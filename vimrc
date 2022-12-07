@@ -40,6 +40,8 @@ cab WQ wq
 cab Q q
 
 syntax on
+set background=light
+colorscheme solarized
 
 filetype plugin on
 filetype indent on
