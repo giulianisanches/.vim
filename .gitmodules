@@ -10,9 +10,6 @@
 [submodule "pack/git-plugins/start/surround"]
 	path = pack/git-plugins/start/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/syntax/start/solarized-theme"]
-	path = pack/syntax/start/solarized-theme
-	url = https://github.com/altercation/vim-colors-solarized
 [submodule "pack/git-plugins/start/fugitive"]
 	path = pack/git-plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
