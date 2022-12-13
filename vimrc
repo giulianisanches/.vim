@@ -29,8 +29,6 @@ set number
 set laststatus=2
 set statusline=%<%F\ %=%-5.(%L\ %v\ %m\ %r%)
 set sm
-set columns=84
-set lines=38
 set completeopt=longest,menuone,preview
 
 cab W w
@@ -40,8 +38,7 @@ cab WQ wq
 cab Q q
 
 syntax on
-set background=light
-colorscheme solarized
+colorscheme onedark
 
 filetype plugin on
 filetype indent on
