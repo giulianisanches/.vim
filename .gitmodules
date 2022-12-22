@@ -13,3 +13,6 @@
 [submodule "pack/git-plugins/start/fugitive"]
 	path = pack/git-plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/syntax/start/dracula"]
+	path = pack/syntax/start/dracula
+	url = git@github.com:dracula/vim.git
