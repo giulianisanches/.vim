@@ -38,7 +38,7 @@ cab WQ wq
 cab Q q
 
 syntax on
-colorscheme onedark
+colorscheme dracula
 
 filetype plugin on
 filetype indent on
